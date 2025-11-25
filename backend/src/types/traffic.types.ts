@@ -4,12 +4,14 @@ export interface Route {
   id?: number;
   route_id: string;
   name: string;
-  start_lat: number;
-  start_lng: number;
-  end_lat: number;
-  end_lng: number;
-  distance_km: number;
+  start_lat?: number;
+  start_lng?: number;
+  end_lat?: number;
+  end_lng?: number;
+  distance_km?: number;
+  description?: string;
   created_at?: Date;
+  updated_at?: Date;
 }
 
 export interface TrafficData {
@@ -20,6 +22,10 @@ export interface TrafficData {
   vehicle_count: number;
   congestion_index: number;
   congestion_level: 'Low' | 'Medium' | 'High';
+  latitude?: number;
+  longitude?: number;
+  weather_condition?: string;
+  temperature?: number;
   created_at?: Date;
 }
 

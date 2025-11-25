@@ -1,6 +1,6 @@
-
 // src/services/prediction.service.ts
 import { PredictionRequest } from '../types/traffic.types';
+import { query } from '../utils/database';
 
 export class PredictionService {
   // returns a simple stubbed prediction based on the request
@@ -35,8 +35,14 @@ export class PredictionService {
 
   // returns stubbed predictions for all routes for the given hour and day_of_week
   async getAllRoutesPredictions(hour: number, day_of_week: number): Promise<any[]> {
-    // In a real implementation this would fetch all routes from DB and compute predictions.
-    // Here we return an empty list to satisfy the controller's usage.
-    return [];
+    const routes = await query(`SELECT route_id, name FROM routes`);
+    
+    return routes.rows.map(route => ({
+      route_id: route.route_id,
+      route_name: route.name,
+      hour,
+      day_of_week,
+      predicted_value: Math.random() * 100 // Replace with actual ML prediction
+    }));
   }
 }
