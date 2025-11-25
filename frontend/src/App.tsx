@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Predictions from './pages/Predictions';
 import Analytics from './pages/Analytics';
-import Routes as RoutesPage from './pages/Routes';
+import RoutesPage from './pages/Routes';
 
 function App() {
   return (

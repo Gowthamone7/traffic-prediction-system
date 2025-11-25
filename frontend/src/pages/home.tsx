@@ -14,6 +14,7 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react';
+import Navbar from '../components/Navbar';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -138,6 +139,7 @@ const Home = () => {
 
   return (
     <div ref={heroRef} className="min-h-screen">
+        <Navbar/>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
         {/* Background Effects */}
